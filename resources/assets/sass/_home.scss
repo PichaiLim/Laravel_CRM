@@ -1,0 +1,97 @@
+@import "color";
+
+#canvas {
+  height: 600px;
+  background-size: cover;
+  padding-top: 170px;
+  background-image: url(/image/cover/IMG_6538.JPG);
+}
+
+.title-header {
+  font-size: 40px;
+  font-weight: bolder;
+  color: $color3;
+}
+
+.clearfix-padding {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.owl-carousel-container {
+  //background-image: url(/image/cover/IMG_0633.jpg);
+  background-color: #5e5d5d;
+
+  .olw-title {
+    color: $color5;
+  }
+
+  img.img-owl.img-responsive.img-thumbnail {
+    max-width: 800px;
+  }
+
+  .img-owl {
+    //max-height: 450px;
+  }
+
+  .chapter-image, .chapter-image > span {
+    color: $color5;
+    font-size: small;
+    text-transform: capitalize;
+    margin-top: 1em;
+  }
+}
+
+a.discount, a.discount:link{
+  color: $color4;
+  text-decoration: none;
+}
+a.discount:hover{
+  color: $color4-1;
+}
+
+footer {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+
+  a.footer-social-link {
+    color: $color5;
+
+    :hover {
+      color: $color5;
+    }
+    :active {
+      color: $color5;
+    }
+    :visited {
+      color: $color5;
+    }
+  }
+
+  .footer-contact, .footer-contact:link{
+    font-size: 18px; text-decoration: none; color: #FFFFFF;
+  }
+}
+
+@media (max-width: 768px) {
+  .owl-carousel-container {
+    //background-image: url(/image/cover/IMG_0633.jpg);
+    background-color: #5e5d5d;
+
+    .olw-title {
+      color: $color5;
+    }
+
+    img.img-owl.img-responsive.img-thumbnail {
+      max-height: 200px;
+    }
+
+    .img-owl {
+      //height: 850px;
+    }
+
+    .chapter-image, .chapter-image > span {
+      display: none !important;
+    }
+  }
+}

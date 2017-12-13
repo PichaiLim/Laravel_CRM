@@ -1,0 +1,48 @@
+@import "color";
+
+a{
+  text-decoration: none;
+}
+
+.container-fixtop {
+  margin: 60px;
+}
+
+.img-project{
+  max-height: 311px;
+}
+
+.navbar {
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.bg-color2 {
+  background: $color2;
+  color: $color5;
+}
+
+.bg-color2-1 {
+  background-color: $color2-1;
+  color: $color5;
+}
+
+.bg-color5{
+  background-color: $color5;
+}
+
+.text-warning-1 {
+  color: $color4;
+}
+
+.text-warning-2{
+  color: $color3;
+}
+
+.text-primary-1 {
+  color: $color6-1;
+}
+
+a.btn.btn-link{
+  text-decoration: none;
+}
