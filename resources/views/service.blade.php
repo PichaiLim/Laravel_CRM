@@ -70,7 +70,7 @@
             <div class="col-xs-12 col-sm-4 col-md-3" style="padding-top: 2rem; padding-right: 0;">
                 <h4 class="well well-lg">
                     <strong>
-                        1 - 3 หมื่นบาท
+                        2 - 5 หมื่นบาท
                     </strong>
                     <br><a href="{{route('project')}}" class="btn btn-link">ตัวอย่างผลงาน</a>
                     <small><a href="#" class="discount">ขอส่วนลด</a></small>
@@ -91,13 +91,13 @@
                 </h3>
 
                 <p>
-
+                
                 </p>
             </div>
             <div class="col-xs-12 col-md-3" style="padding-top: 2rem; padding-right: 0;">
                 <h4 class="well well-lg">
                     <strong>
-                        4 - 8 หมื่นบาท
+                        4 - 9 หมื่นบาท
                     </strong>
                     <br><a href="{{route('project')}}" class="btn btn-link">ตัวอย่างผลงาน</a>
                     <small><a href="#" class="discount">ขอส่วนลด</a></small>
