@@ -17,6 +17,7 @@ Route::prefix('/')->group(function(){
     Route::get('/', function () {
         return view('index');
     })->name('home');
+    
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::get('/project', function(){
@@ -26,4 +27,11 @@ Route::prefix('/')->group(function(){
     Route::get('/service', function(){
         return view('service');
     })->name('service');
+
+    Route::prefix('/password')->group(function(){
+        Route::post('/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+        Route::get('/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+        Route::post('/reset', 'Auth\ResetPasswordController@reset')->name('');
+        Route::get('/reset/{token}', 'Auth\ResetPasswordController@showResetForm ')->name('password.reset');
+    });
 });
