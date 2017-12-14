@@ -16,7 +16,7 @@
 
 <body>
 
-@include('layout.header')
+@include('layouts.header')
 
 <!-- content -->
 
@@ -24,7 +24,7 @@
 
 <!-- ./content -->
 
-@include('layout.footer')
+@include('layouts.footer')
 
 
 <script src="{{ url('/js/jquery.min.js') }}" type="text/javascript"></script>

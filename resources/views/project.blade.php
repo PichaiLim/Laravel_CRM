@@ -6,7 +6,7 @@
  * Time: 15:28
  */
 ?>
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('content')
 
