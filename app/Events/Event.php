@@ -1,6 +1,6 @@
 <?php
 
-namespace PichaiLim\Events;
+namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
@@ -10,7 +10,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class 1
+class Event
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 

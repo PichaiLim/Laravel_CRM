@@ -1,6 +1,7 @@
 {
     "private": true,
     "scripts": {
+        "run": "php artisan serve",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -12,10 +13,16 @@
     "devDependencies": {
         "axios": "^0.17",
         "bootstrap-sass": "^3.3.7",
+        "browser-sync-webpack-plugin": "^1.2.0",
         "cross-env": "^5.1",
         "jquery": "^3.2",
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "browser-sync": "^2.18.13",
+        "font-awesome": "^4.7.0",
+        "owl.carousel": "^2.2.0"
     }
 }

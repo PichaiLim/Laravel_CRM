@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Listeners\PichaiLim\Listeners;
+namespace App\Listeners;
 
-use App\Events\PichaiLim\Events\Event;
+use App\Events\Event;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

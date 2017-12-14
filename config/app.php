@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'Asia/Bangkok',
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
@@ -121,7 +121,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'daily'),
+    'log' => env('APP_LOG', 'single'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -171,11 +171,11 @@ return [
         /*
          * Application Service Providers...
          */
-        PichaiLim\Providers\AppServiceProvider::class,
-        PichaiLim\Providers\AuthServiceProvider::class,
-        // PichaiLim\Providers\BroadcastServiceProvider::class,
-        PichaiLim\Providers\EventServiceProvider::class,
-        PichaiLim\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
     ],
 
