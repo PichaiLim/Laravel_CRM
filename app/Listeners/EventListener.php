@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Listeners;
+namespace Pichai\Listeners;
 
-use App\Events\Event;
+use Pichai\Events\Event;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
