@@ -21,6 +21,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "bootstrap": "4.0.0-beta.2",
         "browser-sync": "^2.18.13",
         "font-awesome": "^4.7.0",
         "owl.carousel": "^2.2.0"

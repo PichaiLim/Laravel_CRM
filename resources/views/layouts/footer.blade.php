@@ -1,11 +1,11 @@
 <!-- footer -->
-<footer class="bg-color2-1">
+<footer id="contactUs" class="bg-color2-1">
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-4">
                     <h4 class="page-header">บันทึกงานล่าสุด</h4>
-                    <a href="#">
+                    <a href="https://www.justklass.com/register_teach/" target="_new">
                         <picture class="img-thumbnail">
                             <img class="img-owl img-responsive"
                                  src="{{ url('image/portfolio/Justklass/canvasRegisterTeacher_ByJustklass.png') }}"
@@ -82,10 +82,10 @@
                         </h4>
                         <ul class="list-inline hidden visible-md visible-lg">
                             <li>
-                                <i class="fa fa-facebook-square fa-2x"></i>
+                                <a href="https://www.facebook.com/pichai.limpanitivat" style="color:#ffffff;"><i class="fa fa-facebook-square fa-2x"></i></a>
                             </li>
                             <li>
-                                <i class="fa fa-google-plus-square fa-2x"></i>
+                                <a href="#" style="color:#ffffff;"><i class="fa fa-google-plus-square fa-2x"></i></a>
                             </li>
                         </ul>
                     </div>

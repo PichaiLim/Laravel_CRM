@@ -25,16 +25,16 @@
                     <a href="{{ route('service') }}">สนใจทำเว็บไซต์?</a>
                 </li>
 
-                <li {{{ (Request::is('dashboard') ? 'class=active' : '') }}}>
+                <li>
                     <a href="#">บันทึก</a>
                 </li>
 
-                <li {{{ (Request::is('dashboard') ? 'class=active' : '') }}}>
+                <li>
                     <a href="#">บทเรียนออนไลน์</a>
                 </li>
 
-                <li {{{ (Request::is('dashboard') ? 'class=active' : '') }}}>
-                    <a href="#">ติดต่อเรา</a>
+                <li>
+                    <a href="#contactUs">ติดต่อเรา</a>
                 </li>
             </ul>
         </div>
