@@ -18,10 +18,10 @@ $factory->define(PichaiLim\User::class, function (Faker $faker) {
 
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,        
+        'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('passwd'),
-        'address'=> $faker->address,
-        'phone'=>$facker->tollFreePhoneNumber,
+        'address' => $faker->address,
+        'phone' => $faker->tollFreePhoneNumber,
         'remember_token' => str_random(10),
     ];
 });
