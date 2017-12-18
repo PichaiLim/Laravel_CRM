@@ -12,6 +12,10 @@ class SocialContactedTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(SocialContactedTableSeeder::class, 1)->create();
+//        factory(SocialContactedTableSeeder::class, 1)->create();
+        DB::table('social_contacted')->insert([
+            'url'=>'#',
+            'title'=>'',
+        ]);
     }
 }
