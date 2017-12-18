@@ -30,24 +30,6 @@
 <script src="{{ url('/js/jquery.min.js') }}" type="text/javascript"></script>
 <script src="{{ url('/js/app.js') }}" type="text/javascript"></script>
 <script src="{{ url('/js/owl.carousel.min.js') }}" type="text/javascript"></script>
-
-<script type="text/javascript" rel="script">
-    $(document).ready(function () {
-        $('.owl-carousel').owlCarousel({
-            items: 2,
-            lazyLoad: true,
-            loop: true,
-            margin: 10,
-            autoplay: true,
-            autoplayTimeout: 2000,
-            autoplayHoverPause: true,
-            itemsDesktop: [1000, 5], //5 items between 1000px and 901px
-            itemsDesktopSmall: [900, 3], // 3 items betweem 900px and 601px
-            itemsTablet: [600, 2], //2 items between 600 and 0;
-        });
-
-    });
-</script>
 </body>
 
 </html>

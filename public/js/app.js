@@ -990,7 +990,22 @@ window.Vue = __webpack_require__(35);
 Vue.component('example-component', __webpack_require__(38));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
+});
+
+$(document).ready(function () {
+    $('.owl-carousel').owlCarousel({
+        items: 2,
+        lazyLoad: true,
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        itemsDesktop: [1000, 5], //5 items between 1000px and 901px
+        itemsDesktopSmall: [900, 3], // 3 items betweem 900px and 601px
+        itemsTablet: [600, 2] //2 items between 600 and 0;
+    });
 });
 
 /***/ }),

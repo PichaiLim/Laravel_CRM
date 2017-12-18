@@ -28,6 +28,7 @@
 
 .owl-carousel-container img.img-owl.img-responsive.img-thumbnail {
   max-width: 800px;
+  max-height: 440px;
 }
 
 .owl-carousel-container .chapter-image,
