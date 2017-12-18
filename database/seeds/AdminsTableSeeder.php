@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class AdminTableSeeder extends Seeder
+class AdminsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class AdminTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(User::class,2)->create();
+        factory(\Pichai\Admins::class, 2)->create();
     }
 }

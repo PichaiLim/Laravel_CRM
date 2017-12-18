@@ -15,11 +15,13 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image');
-            $table->string('chapter',255);
-            $table->tinyInteger('last_year',4);
-            $table->integer('list_index')->index();
-            $table->enum('status_show',['on','off'])->default('on');
+            $table->string('urls');
+            $table->string('title',255);
+            $table->string('caption', 255)->nullable();
+            $table->string('alt_text')->nullable();
+            $table->text('description')->nullable();
+            $table->date('last_year');
+            $table->enum('status_show', ['on','off'])->default('on');
             $table->timestamps();
         });
     }

@@ -13,14 +13,14 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(PichaiLim\User::class, function (Faker $faker) {
+$factory->define(Pichai\User::class, function (Faker $faker) {
     static $password;
 
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('passwd'),
-        'address' => $faker->address,
+        'address' => $faker->streetAddress,
         'phone' => $faker->tollFreePhoneNumber,
         'remember_token' => str_random(10),
     ];

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder
+class ProfilesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(\Pichai\User::class,50)->create();
+        factory(\Pichai\Profiles::class, 20)->create();
     }
 }

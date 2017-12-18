@@ -1,8 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
+use Pichai\Admins;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Admins::class, function (Faker $faker) {
     static $password;
 
     return [
