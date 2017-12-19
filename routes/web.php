@@ -35,3 +35,16 @@ Route::prefix('/')->group(function(){
         Route::get('/reset/{token}', 'Auth\ResetPasswordController@showResetForm ')->name('password.reset');
     });
 });
+
+Route::prefix('/admin')->group(function(){
+    Route::get('/', function(){
+        return redirect('login');
+    })->name('admin.login');
+    Route::post('/', function(){
+        return redirect('login');
+    })->name('admin.login.submit');
+
+    Route::get('/home', function(){
+        return view('admin.index');
+    })->name('admin.home');
+});
