@@ -19,7 +19,6 @@
 }
 
 .owl-carousel-container {
-  //background-image: url(/image/cover/IMG_0633.jpg);
   background-color: #5e5d5d;
 
   .olw-title {
@@ -29,10 +28,6 @@
   img.img-owl.img-responsive.img-thumbnail {
     max-width: 800px;
     max-height: 440px;
-  }
-
-  .img-owl {
-    //max-height: 450px;
   }
 
   .chapter-image, .chapter-image > span {
@@ -55,18 +50,8 @@ footer {
   padding-top: 2rem;
   padding-bottom: 1rem;
 
-  a.footer-social-link {
+  a.icon-social_contact{
     color: $color5;
-
-    :hover {
-      color: $color5;
-    }
-    :active {
-      color: $color5;
-    }
-    :visited {
-      color: $color5;
-    }
   }
 
   .footer-contact, .footer-contact:link{
@@ -85,10 +70,6 @@ footer {
 
     img.img-owl.img-responsive.img-thumbnail {
       max-height: 200px;
-    }
-
-    .img-owl {
-      //height: 850px;
     }
 
     .chapter-image, .chapter-image > span {

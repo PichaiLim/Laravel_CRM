@@ -80,12 +80,21 @@
                         <h4 class="page-header">
                             Social Contact
                         </h4>
-                        <ul class="list-inline hidden visible-md visible-lg">
+                        <ul class="list-inline">
                             <li>
-                                <a href="https://www.facebook.com/pichai.limpanitivat" style="color:#ffffff;"><i class="fa fa-facebook-square fa-2x"></i></a>
+                                <a class="icon-social_contact" href="https://www.facebook.com/pichai.limpanitivat" target="_new"><i class="fa fa-facebook-square fa-2x"></i></a>
                             </li>
                             <li>
-                                <a href="#" style="color:#ffffff;"><i class="fa fa-google-plus-square fa-2x"></i></a>
+                                <a class="icon-social_contact" href="https://plus.google.com/u/0/+PichaiLimpanitivat" target="_new"><i class="fa fa-google-plus-square fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a class="icon-social_contact" href="https://www.youtube.com/user/thepcphliove/videos" target="_new"><i class="fa fa-youtube-square fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a class="icon-social_contact" href="https://www.linkedin.com/in/pichai-limpanitivat-67311490" target="_new"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a class="icon-social_contact" href="mailto:Pichai.Limpanitivat@Gmail.com"><i class="fa fa-envelope-square fa-2x"></i></a>
                             </li>
                         </ul>
                     </div>

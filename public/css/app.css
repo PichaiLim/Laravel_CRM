@@ -54,19 +54,7 @@ footer {
   padding-bottom: 1rem;
 }
 
-footer a.footer-social-link {
-  color: #FFFFFF;
-}
-
-footer a.footer-social-link :hover {
-  color: #FFFFFF;
-}
-
-footer a.footer-social-link :active {
-  color: #FFFFFF;
-}
-
-footer a.footer-social-link :visited {
+footer a.icon-social_contact {
   color: #FFFFFF;
 }
 
