@@ -983,7 +983,7 @@
 <!-- jQuery -->
 <script src="{{ url('/js/jquery.min.js') }}" type="text/javascript"></script>
 <!-- Bootstrap -->
-<script src="{{ url('/js/bootstrap.min.js') }}"></script>
+<script src="{{ url('/js/bootstrap.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ url('/js/fastclick.js') }}"></script>
 <!-- NProgress -->

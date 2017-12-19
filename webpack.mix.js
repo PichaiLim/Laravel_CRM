@@ -61,6 +61,7 @@ mix.copy([
         path_admin_template+'/vendors/jqvmap/dist/maps/jquery.vmap.world.js',
         path_admin_template+'/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js',
         path_admin_template+'/vendors/moment/min/moment.min.js',
+        'node_modules/bootstrap/dist/js/bootstrap.js',
         path_admin_template+'/vendors/bootstrap-daterangepicker/daterangepicker.js',
         path_admin_template+'/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js',
         path_admin_template+'/vendors/jquery.hotkeys/jquery.hotkeys.js',
