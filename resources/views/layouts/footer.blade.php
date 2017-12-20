@@ -82,19 +82,25 @@
                         </h4>
                         <ul class="list-inline">
                             <li>
-                                <a class="icon-social_contact" href="https://www.facebook.com/pichai.limpanitivat" target="_new"><i class="fa fa-facebook-square fa-2x"></i></a>
+                                <a class="icon-social_contact" href="https://www.facebook.com/pichai.limpanitivat" target="_new" role="link" ><i class="fa fa-facebook-square fa-2x"></i></a>
                             </li>
                             <li>
-                                <a class="icon-social_contact" href="https://plus.google.com/u/0/+PichaiLimpanitivat" target="_new"><i class="fa fa-google-plus-square fa-2x"></i></a>
+                                <a class="icon-social_contact" href="https://plus.google.com/u/0/+PichaiLimpanitivat" target="_new" role="link" ><i class="fa fa-google-plus-square fa-2x"></i></a>
                             </li>
                             <li>
-                                <a class="icon-social_contact" href="https://www.youtube.com/user/thepcphliove/videos" target="_new"><i class="fa fa-youtube-square fa-2x"></i></a>
+                                <a class="icon-social_contact" href="https://www.youtube.com/user/thepcphliove/videos" target="_new" role="link" ><i class="fa fa-youtube-square fa-2x"></i></a>
                             </li>
                             <li>
-                                <a class="icon-social_contact" href="https://www.linkedin.com/in/pichai-limpanitivat-67311490" target="_new"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                                <a class="icon-social_contact" href="https://www.linkedin.com/in/pichai-limpanitivat-67311490" target="_new" role="link" ><i class="fa fa-linkedin-square fa-2x"></i></a>
                             </li>
                             <li>
-                                <a class="icon-social_contact" href="mailto:Pichai.Limpanitivat@Gmail.com"><i class="fa fa-envelope-square fa-2x"></i></a>
+                                <a class="icon-social_contact" href="https://github.com/PichaiLim/" target="_new" role="link" ><i class="fa fa-github-square fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a class="icon-social_contact" href="https://PichaiLimpanitivat@bitbucket.org" target="_new" role="link" ><i class="fa fa-bitbucket-square fa-2x"></i></a>
+                            </li>
+                            <li>
+                                <a class="icon-social_contact" href="mailto:Pichai.Limpanitivat@Gmail.com" role="link" ><i class="fa fa-envelope-square fa-2x"></i></a>
                             </li>
                         </ul>
                     </div>
