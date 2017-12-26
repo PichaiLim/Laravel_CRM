@@ -48,3 +48,6 @@ Route::prefix('/admin')->group(function(){
         return view('admin.index');
     })->name('admin.home');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

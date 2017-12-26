@@ -20,7 +20,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 
 // font-awesome
-mix.copy('node_modules/font-awesome/fonts/*', 'public/fonts/vendor/font-awesome/')
+mix.copy('node_modules/font-awesome/fonts/*', 'public/fonts/')
     .copy('node_modules/font-awesome/css/font-awesome.min.css', 'public/css');
 
 // owl.carousel
