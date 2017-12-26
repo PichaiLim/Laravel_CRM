@@ -12,10 +12,11 @@ class SocialContactedTableSeeder extends Seeder
     public function run()
     {
         //
-//        factory(SocialContactedTableSeeder::class, 1)->create();
         DB::table('social_contacted')->insert([
-            'url'=>'#',
-            'title'=>'',
+            'url'=>'https://www.facebook.com',
+            'title'=>'facebook',
+            'created_at'=> new DateTime('now'),
+            'updated_at'=>new DateTime('now')
         ]);
     }
 }
