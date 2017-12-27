@@ -38,4 +38,8 @@ Route::prefix('/')->group(function(){
 
 Route::group(['prefix'=>'/admin'/* , 'middleware'=>['auth'] */],function(){
     Route::get('/home', 'Admin\AdminController@index')->name('admin.home');
+
+    Route::get('/settings', function(){
+        echo "setting";
+    })->name('admin.settings');
 });

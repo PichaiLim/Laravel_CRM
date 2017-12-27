@@ -10,12 +10,12 @@
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <img src="https://loremflickr.com/64/64" alt="">John Doe
-                        <span class=" fa fa-angle-down"></span>
+                        <span class="fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li><a href="javascript:;"> Profile</a></li>
                         <li>
-                            <a href="javascript:;">
+                            <a href="{{ route('admin.settings') }}">
                                 <span class="badge bg-red pull-right">50%</span>
                                 <span>Settings</span>
                             </a>
