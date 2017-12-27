@@ -36,16 +36,6 @@ Route::prefix('/')->group(function(){
     });
 });
 
-Route::prefix('/admin')->group(function(){
-    Route::get('/', function(){
-        return redirect('login');
-    })->name('admin.login');
-    Route::post('/', function(){
-        return redirect('login');
-    })->name('admin.login.submit');
-
+Route::group(['prefix'=>'/admin'/* , 'middleware'=>['auth'] */],function(){
     Route::get('/home', 'Admin\AdminController@index')->name('admin.home');
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
