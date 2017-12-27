@@ -44,9 +44,7 @@ Route::prefix('/admin')->group(function(){
         return redirect('login');
     })->name('admin.login.submit');
 
-    Route::get('/home', function(){
-        return view('admin.index');
-    })->name('admin.home');
+    Route::get('/home', 'Admin\AdminController@index')->name('admin.home');
 });
 Auth::routes();
 
