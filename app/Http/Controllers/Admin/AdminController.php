@@ -4,6 +4,8 @@ namespace Pichai\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Pichai\Http\Controllers\Controller;
+use Pichai\Admins as Admin;
+use \Illuminate\Pagination\Paginator as Paginator;
 
 class AdminController extends Controller
 {
@@ -14,8 +16,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.index');
+        //TODO get all admin user
+        $adminAll = Admin::paginate();
+
+
+        return view('admin.index', ['adminAll'=>$adminAll]);
     }
 
     /**
@@ -26,6 +31,7 @@ class AdminController extends Controller
     public function create()
     {
         //
+        echo "hello create";
     }
 
     /**
@@ -47,7 +53,11 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        //TODO Model
+        $admin = Admin::find($id);
+        // dd($admin);
+
+        return view('admin.show', ['admin' => $admin]);
     }
 
     /**
@@ -59,6 +69,9 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
+        $admin = Admin::find($id);
+        
+        return view('admin.edit', ['admin'=>$admin]);
     }
 
     /**
@@ -82,5 +95,19 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search(Request $request, $page = 1)
+    {
+        $search = $request->input('search');
+
+        /* Paginator::currentPageResolver(function () use ($page) {
+            return $page;
+        }); */
+
+        # going to next page is not working yet
+        $adminAll = Admin::where('name', 'like', "%{$search}%")->paginate(3);
+
+        return view('admin.index', ['adminAll'=>$adminAll]);
     }
 }

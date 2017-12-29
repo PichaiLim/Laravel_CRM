@@ -11,6 +11,9 @@ class Admins extends Model
     //
     use Notifiable;
 
+    // table
+    protected $table = 'admins';
+
     /**
      * The attributes that are mass assignable.
      *
