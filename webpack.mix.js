@@ -35,6 +35,12 @@ mix.copy([
     path_admin_template+'/vendors/google-code-prettify/bin/prettify.min.css',
     path_admin_template+'/build/css/custom.min.css',
     path_admin_template+'/vendors/iCheck/skins/flat/green.css',
+    path_admin_template+'/vendors/iCheck/skins/flat/green.png',
+    path_admin_template+'/vendors/iCheck/skins/flat/green@2x.png',    
+    path_admin_template+'/vendors/select2/dist/css/select2.min.css',
+    path_admin_template+'/vendors/switchery/dist/switchery.min.css',
+    path_admin_template+'/vendors/starrr/dist/starrr.css',
+    path_admin_template+'/vendors/bootstrap-daterangepicker/daterangepicker.css',
     path_admin_template+'/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css',
     path_admin_template+'/vendors/jqvmap/dist/jqvmap.min.css',
     path_admin_template+'/vendors/bootstrap-daterangepicker/daterangepicker.css'
@@ -66,5 +72,8 @@ mix.copy([
         path_admin_template+'/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js',
         path_admin_template+'/vendors/jquery.hotkeys/jquery.hotkeys.js',
         path_admin_template+'/vendors/google-code-prettify/src/prettify.js',
+        path_admin_template+'/vendors/switchery/dist/switchery.min.js',
+        path_admin_template+'/vendors/select2/dist/js/select2.full.min.js',
+        path_admin_template+'/vendors/starrr/dist/starrr.js',
         path_admin_template+'/build/js/custom.min.js'
     ], 'public/js');
