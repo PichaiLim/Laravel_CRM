@@ -39,10 +39,10 @@ Route::prefix('/')->group(function(){
 Route::group(['prefix'=>'/admin'/* , 'middleware'=>['auth'] */],function(){
     Route::get('/home', 'Admin\AdminController@index')->name('admin.home');
     Route::get('/create', 'Admin\AdminController@create')->name('admin.create.admin');
-    Route::post('/create', 'Admin\AdminController@create')->name('admin.create.admin.submit');
+    Route::post('/create', 'Admin\AdminController@store')->name('admin.create.admin.submit');
     Route::get('/search/{page?}', 'Admin\AdminController@search')->name('admin.search')->where('page', '[0-9]+');
     Route::get('/show/{id}', 'Admin\AdminController@show')->name('admin.show')->where('id', '[0-9]+');
     Route::get('/edit/{id}', 'Admin\AdminController@edit')->name('admin.edit.admin')->where('id', '[0-9]+');
-    Route::post('/edit/{id}', 'Admin\AdminController@edit')->name('admin.edit.admin.submit')->where('id', '[0-9]+');
-    Route::get('/settings', 'Admin\AdminController@store')->name('admin.settings');
+    Route::post('/edit/{id}', 'Admin\AdminController@update')->name('admin.edit.admin.submit')->where('id', '[0-9]+');
+    // Route::get('/settings', 'Admin\AdminController@store')->name('admin.settings');
 });

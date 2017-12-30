@@ -3,9 +3,11 @@
 namespace Pichai\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Validator;
 use Pichai\Http\Controllers\Controller;
 use Pichai\Admins as Admin;
-use \Illuminate\Pagination\Paginator as Paginator;
+// use \Illuminate\Pagination\Paginator as Paginator;
+use Pichai\Http\Requests\StoreAdmins;
 
 class AdminController extends Controller
 {
@@ -31,7 +33,7 @@ class AdminController extends Controller
     public function create()
     {
         //
-        echo "hello create";
+        return view('admin.create');
     }
 
     /**
@@ -40,9 +42,16 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAdmins $request)
     {
-        //
+        //TODO create validation
+        $validatedData = Validator::make($request->all());
+
+        if ($validatedData->fails()) {
+            return redirect()->back()->withErrors($validatedData->errors());
+        }
+
+        return null;
     }
 
     /**
