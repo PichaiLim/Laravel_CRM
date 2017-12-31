@@ -7,6 +7,8 @@ use Pichai\Admins;
 
 class Role extends Model
 {
+    protected $table = "roles";
+
     //
     public function admins()
     {
