@@ -3,15 +3,24 @@
 namespace Pichai;
 
 use Illuminate\Database\Eloquent\Model;
-use Pichai\Admins;
+use Pichai\RoleUsers;
 
 class Role extends Model
 {
     protected $table = "roles";
 
-    //
-    public function admins()
-    {
-        return $this->belongsToMany(Admins::class);
+    protected $fillable = ['name', 'description'];
+
+    public $timestamps = true;
+
+    protected $dateFormat = 'Y-m-d H:i:s';
+
+    protected $dates = ['created_at', 'updated_id'];
+
+    public function roleUser(){
+        return $this->hasMany('Pichai\RoleUsers', 'role_id','id');
     }
+
+
+
 }

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class StoreAdmins extends FormRequest
 {
 
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -14,7 +15,7 @@ class StoreAdmins extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,9 +26,11 @@ class StoreAdmins extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'password' => 'required|min:8',
-            'email' => 'required|email|unique:admins'
+            'name' => 'required|string',
+            'password' => 'required|min:3|confirmed',
+            'password_confirmation' => 'required|min:3',
+            'email' => 'required|email|unique:admins',
+            'roles' => 'required|integer|min:1'
         ];
     }
 

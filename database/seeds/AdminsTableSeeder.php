@@ -12,6 +12,6 @@ class AdminsTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(\Pichai\Admins::class, 2)->create();
+        factory(\Pichai\Admins::class, 20)->create();
     }
 }

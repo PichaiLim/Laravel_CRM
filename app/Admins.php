@@ -4,7 +4,7 @@ namespace Pichai;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use Pichai\Role;
+
 
 class Admins extends Model
 {
@@ -14,23 +14,34 @@ class Admins extends Model
     // TODO Default table name
     protected $table = 'admins';
 
-    // TODO Endable or Disabling Auto Timestamps
-    public $timestamps = false;
+    // TODO Enable or Disabling Auto Timestamps
+    public $timestamps = true;
+
+    protected $dateFormat = 'Y-m-d H:i:s';
+
+    protected $dates = [
+        'created_at',
+        'updated_at'
+    ];
 
     // TODO Providing A Custom Timestamp Format
-    protected function getDateFormat()
+    // Drop Function error Carbon.php 'trailing data'
+    /*protected function getDateFormat()
     {
         return 'U';
-    }
+    }*/
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $fillable = [ 'name', 'email', 'password'];
+
+    /**
+     * Defining Guarded Attributes On A Model
+     */
+    protected $guarded = ['id', 'password'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -41,47 +52,20 @@ class Admins extends Model
         'password', 'remember_token',
     ];
 
-    // Relation
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class);
-    }
-
+    # Relation
     /**
-     * @param string|array $roles
-     * @return bool
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function authorizeRoles($roles)
-    {
-        if (is_array($roles)) {
-            return $this->hasAnyRole($roles) || 
-                    abort(401, 'This action is unauthorized.');
-        }
-        return $this->hasRole($roles) || 
-                abort(401, 'This action is unauthorized.');
+    public function roleUser(){
+        return $this->hasOne('Pichai\RoleUsers', 'user_id', 'id');
     }
 
-    /**
-     * Check multiple roles
-     * @param array $roles
-     * @return bool
-     */
-    public function hasAnyRole($roles)
-    {
-        return null !== $this->roles()->whereIn('name', $roles)->first();
-    }
-
-    /**
-     * Check one role
-     * @param string $role
-     * @return bool
-     */
-    public function hasRole($role)
-    {
-        return null !== $this->roles()->where('name', $role)->first();
-    }
-
+    # Query
     public function scopeSearchName($query, $search){
         return $query->where('name', 'like', "%{$search}%");
+    }
+
+    public function scopePassword($password){
+        return bcrypt((empty($password))? $password="password":$password);
     }
 }

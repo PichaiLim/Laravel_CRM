@@ -3,14 +3,16 @@
 namespace Pichai\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Illuminate\Validation\Validator;
 use Pichai\Http\Controllers\Controller;
 use Pichai\Admins as Admin;
-// use \Illuminate\Pagination\Paginator as Paginator;
-use Pichai\Http\Requests\StoreAdmins;
+use \Illuminate\Pagination\Paginator;
+use Pichai\Http\Requests\StoreAdmins as StoreAdmins;
+use Pichai\Role;
+use Pichai\RoleUsers;
 
 class AdminController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -19,10 +21,10 @@ class AdminController extends Controller
     public function index()
     {
         //TODO get all admin user
-        $adminAll = Admin::paginate();
+        $adminAll = Admin::orderBy('id','desc')->paginate();
 
 
-        return view('admin.index', ['adminAll'=>$adminAll]);
+        return view('admin.index', ['adminAll' => $adminAll]);
     }
 
     /**
@@ -32,39 +34,53 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin.create');
+        //TODO request model roles
+        $roles = Role::all();
+        $roles->id = 1;
+
+        return view('admin.create', ['roles' => $roles]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request|StoreAdmins $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreAdmins $request)
     {
-        //TODO create validation
-        $validatedData = Validator::make($request->all());
+        // TODO get new object 'Admins' and insert data
+        $admin = new Admin;
+        $admin->name = (string)$request->input('name');
+        $admin->email = (string)$request->input('email');
+        $admin->password = (string)bcrypt($request->input('password'));
+        $admin->remember_token = str_random(10);
+        $admin->save(); // TODO insert data 'Admins'
 
-        if ($validatedData->fails()) {
-            return redirect()->back()->withErrors($validatedData->errors());
-        }
+        // TODO get last id admin
+        $adminLastIdNow = $admin->id;
 
-        return null;
+        // TODO get new object 'RoleUsers' and insert data
+        $roles = new RoleUsers;
+        $roles->role_id = (int)$request->input('roles');
+        $roles->user_id = (int)$adminLastIdNow;
+        $roles->save(); // TODO insert data
+
+
+        // TODO redirect
+        return redirect()->route('admin.home');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         //TODO Model
         $admin = Admin::find($id);
-        // dd($admin);
 
         return view('admin.show', ['admin' => $admin]);
     }
@@ -72,22 +88,26 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
-        $admin = Admin::find($id);
-        
-        return view('admin.edit', ['admin'=>$admin]);
+        $admin = Admin::find($id)->roleUser;
+        dd($admin->role);
+
+        $roles = Role::all();
+        $roles->id = $admin->role_id;
+
+        return view('admin.edit', ['admin' => $admin, 'roles' => $roles]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -98,7 +118,7 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -110,14 +130,20 @@ class AdminController extends Controller
     {
         $search = $request->input('search');
 
+        // TODO Check default page
+        if (!empty((int)$request->input('page') >= 1)) {
+            $page = $request->input('page');
+        }
+
         // TODO Paginator
-        /* Paginator::currentPageResolver(function () use ($page) {
+        Paginator::currentPageResolver(function () use ($page) {
             return $page;
-        }); */
+        });
 
         # going to next page is not working yet
-        $adminAll = Admin::searchName($search)->paginate();
+        $adminAll = Admin::searchName($search)->paginate(1);
 
-        return view('admin.index', ['adminAll'=>$adminAll]);
+        // goto page ane return model
+        return view('admin.index', ['adminAll' => $adminAll]);
     }
 }
