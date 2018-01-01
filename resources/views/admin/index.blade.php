@@ -29,7 +29,7 @@
                   <div class="x_content">
                     <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                        <a href="#" class="btn btn-primary btn-sm" role="button"><i class="fa fa-plus"></i> Add User</a>
+                        <a href="{{ route('admin.create.admin') }}" class="btn btn-primary btn-sm" role="button"><i class="fa fa-plus"></i> Add User</a>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 text-center">
                         {{ $adminAll->appends(['search' => Request::get('search'), 'page'=>Request::get('page')])->links() }}

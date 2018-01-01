@@ -110,12 +110,13 @@ class AdminController extends Controller
     {
         $search = $request->input('search');
 
+        // TODO Paginator
         /* Paginator::currentPageResolver(function () use ($page) {
             return $page;
         }); */
 
         # going to next page is not working yet
-        $adminAll = Admin::where('name', 'like', "%{$search}%")->paginate(3);
+        $adminAll = Admin::searchName($search)->paginate();
 
         return view('admin.index', ['adminAll'=>$adminAll]);
     }
