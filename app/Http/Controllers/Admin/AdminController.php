@@ -21,7 +21,7 @@ class AdminController extends Controller
     public function index()
     {
         //TODO get all admin user
-        $adminAll = Admin::orderBy('id','desc')->paginate();
+        $adminAll = Admin::orderBy('id', 'desc')->paginate();
 
 
         return view('admin.index', ['adminAll' => $adminAll]);
@@ -51,8 +51,8 @@ class AdminController extends Controller
     {
         // TODO get new object 'Admins' and insert data
         $admin = new Admin;
-        $admin->name = (string)$request->input('name');
-        $admin->email = (string)$request->input('email');
+        $admin->name = (string)trim($request->input('name'));
+        $admin->email = (string)trim($request->input('email'));
         $admin->password = (string)bcrypt($request->input('password'));
         $admin->remember_token = str_random(10);
         $admin->save(); // TODO insert data 'Admins'
@@ -94,13 +94,11 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
-        $admin = Admin::find($id)->roleUser;
-        dd($admin->role);
+        $admin = Admin::find($id);
 
         $roles = Role::all();
-        $roles->id = $admin->role_id;
 
-        return view('admin.edit', ['admin' => $admin, 'roles' => $roles]);
+        return view('admin.edit', ['admin' => $admin, 'roles' => $roles, 'roleSelected' => $admin->roleUser->role_id]);
     }
 
     /**
@@ -112,7 +110,24 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //TODO Vlidate input
+        $this->validate($request, [
+            'name' => 'required|string',
+            'email' => 'required|email|unique:admins,email,' . $id,
+            'roles' => 'required|integer|min:1'
+        ]);
+
+        $admin = Admin::findOrFail($id);
+        $admin->name = trim($request->name);
+        $admin->email = trim($request->email);
+        $admin->save();
+
+        $roleUser = RoleUsers::findOrFail($request->roleUser);
+        $roleUser->user_id = $admin->id;
+        $roleUser->role_id = $request->roles;
+        $roleUser->save();
+
+        return redirect()->route('admin.show', ['id' => $admin->id]);
     }
 
     /**

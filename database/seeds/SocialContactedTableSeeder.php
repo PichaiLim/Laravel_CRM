@@ -14,10 +14,10 @@ class SocialContactedTableSeeder extends Seeder
     {
         //
         DB::table('social_contacted')->insert([
-            'url'=>'https://www.facebook.com',
-            'title'=>'facebook',
-            'created_at'=> $faker->dateTime($max = 'now', $timezone = null),
-            'updated_at'=>$faker->dateTime($max = 'now', $timezone = null)
+            'url' => 'https://www.facebook.com',
+            'title' => 'facebook',
+            'created_at' => $faker->dateTime($max = 'now', $timezone = null),
+            'updated_at' => $faker->dateTime($max = 'now', $timezone = null)
         ]);
     }
 }

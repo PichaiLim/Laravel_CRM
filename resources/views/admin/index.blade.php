@@ -43,7 +43,7 @@
                                     <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
                                         <div class="well profile_view">
                                             <div class="col-sm-12">
-                                                {{--  <h4 class="brief"><i>{{ $value->name }}</i></h4>  --}}
+                                                  <h4 class="brief"><i>{{ $value->roleUser->role->name }}</i></h4>
                                                 <div class="left col-xs-7">
                                                     <h2>{{ $value->name }}</h2>
                                                     <p><strong>Email: </strong> {{ $value->email}} </p>

@@ -9,7 +9,7 @@ use Pichai\Role;
 class RoleUsers extends Model
 {
     //TODO table name
-    protected $table ="role_user";
+    protected $table = "role_user";
 
     protected $fillable = ['role_id', 'user_id'];
 
@@ -22,17 +22,18 @@ class RoleUsers extends Model
     protected $dates = ['created_at', 'update_at'];
 
     # Relation model 'Admins'
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function admin(){
-        return $this->belongsTo('Pichai\Admins', 'user_id','id');
+    public function admin()
+    {
+        return $this->belongsTo('Pichai\Admins', 'user_id', 'id');
     }
 
-    public function role(){
-        return $this->belongsTo('Pichai\Role', 'role_id','id');
+    public function role()
+    {
+        return $this->belongsTo('Pichai\Role', 'role_id', 'id');
     }
-
-
 
 }

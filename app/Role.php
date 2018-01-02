@@ -17,8 +17,9 @@ class Role extends Model
 
     protected $dates = ['created_at', 'updated_id'];
 
-    public function roleUser(){
-        return $this->hasMany('Pichai\RoleUsers', 'role_id','id');
+    public function roleUser()
+    {
+        return $this->hasMany('Pichai\RoleUsers', 'role_is', 'id');
     }
 
 

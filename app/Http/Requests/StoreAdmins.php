@@ -29,7 +29,7 @@ class StoreAdmins extends FormRequest
             'name' => 'required|string',
             'password' => 'required|min:3|confirmed',
             'password_confirmation' => 'required|min:3',
-            'email' => 'required|email|unique:admins',
+            'email' => 'required|email|unique:admins,email',
             'roles' => 'required|integer|min:1'
         ];
     }

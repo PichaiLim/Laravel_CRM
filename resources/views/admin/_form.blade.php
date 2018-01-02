@@ -46,7 +46,8 @@
                     <div class="x_content">
                         <br/>
 
-                        <form action="{{ route('admin.create.admin.submit') }}" method="post" id="my-form" data-parsley-validate
+                        <form action="{{ route('admin.create.admin.submit') }}" method="post" id="my-form"
+                              data-parsley-validate
                               class="form-horizontal form-label-left" role="form" onautocomplete="false">
 
                             {{ csrf_field() }}
@@ -59,7 +60,7 @@
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" name="name" id="name" required="required"
-                                           class="form-control col-md-7 col-xs-12" autofocus="true">
+                                           class="form-control col-md-7 col-xs-12" autofocus="true" value="{{ old('name') }}">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -69,7 +70,7 @@
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="email" id="email" name="email" required="required"
-                                           class="form-control col-md-7 col-xs-12">
+                                           class="form-control col-md-7 col-xs-12" value="{{ old('email') }}">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -85,7 +86,8 @@
                                 <label for="password_confirmation" class="control-label col-md-3 col-sm-3 col-xs-12">Confirm
                                     Password </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="password_confirmation" class="form-control col-md-7 col-xs-12" type="password"
+                                    <input id="password_confirmation" class="form-control col-md-7 col-xs-12"
+                                           type="password"
                                            name="password_confirmation">
                                 </div>
                             </div>
@@ -106,7 +108,10 @@
                                     <button class="btn btn-primary" type="button" role="button"
                                             onclick="javascript:history.back();">Cancel
                                     </button>
-                                    <button class="btn btn-primary" type="reset" role="button" onclick="javascript:return confirm('Are you sure you want to reset this item?');">Reset</button>
+                                    <button class="btn btn-primary" type="reset" role="button"
+                                            onclick="javascript:return confirm('Are you sure you want to reset this item?');">
+                                        Reset
+                                    </button>
                                     <button type="submit" class="btn btn-success" role="button">Submit</button>
                                 </div>
                             </div>
