@@ -110,23 +110,26 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //TODO Vlidate input
+        //TODO validate input
         $this->validate($request, [
             'name' => 'required|string',
             'email' => 'required|email|unique:admins,email,' . $id,
             'roles' => 'required|integer|min:1'
         ]);
 
+        // TODO check id admin
         $admin = Admin::findOrFail($id);
         $admin->name = trim($request->name);
         $admin->email = trim($request->email);
         $admin->save();
 
+        // TODO check id role user
         $roleUser = RoleUsers::findOrFail($request->roleUser);
         $roleUser->user_id = $admin->id;
         $roleUser->role_id = $request->roles;
         $roleUser->save();
 
+        // TODO redirect route to 'admin.show'
         return redirect()->route('admin.show', ['id' => $admin->id]);
     }
 
@@ -138,7 +141,18 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //TODO check find by id Admins
+        $admin = Admin::find($id);
+
+        // TODO get value
+        $roleUserId = $admin->roleUser->id;
+
+        // TODO delete and existing model by key
+        RoleUsers::destroy($roleUserId);
+        $admin->delete();
+
+        // TODO redirect to admin home
+        return redirect()->route('admin.home');
     }
 
     public function search(Request $request, $page = 1)

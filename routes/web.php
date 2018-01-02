@@ -44,5 +44,5 @@ Route::group(['prefix'=>'/admin'/* , 'middleware'=>['auth'] */],function(){
     Route::get('/show/{id}', 'Admin\AdminController@show')->name('admin.show')->where('id', '[0-9]+');
     Route::get('/edit/{id}', 'Admin\AdminController@edit')->name('admin.edit.admin')->where('id', '[0-9]+');
     Route::post('/edit/{id}', 'Admin\AdminController@update')->name('admin.edit.admin.submit')->where('id', '[0-9]+');
-    // Route::get('/settings', 'Admin\AdminController@store')->name('admin.settings');
+    Route::get('/delete/{id}', 'Admin\AdminController@destroy')->name('admin.delete')->where('id', '[0-9]+');
 });
