@@ -5,6 +5,7 @@ namespace Pichai\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Pichai\Http\Controllers\Controller;
+use Pichai\Http\Requests\StoreUsers;
 use Pichai\User;
 
 class UserController extends Controller
@@ -39,7 +40,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUsers $request)
     {
         //
     }
@@ -67,8 +68,9 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $user = User::find($id);
 
-        return view('user.edit');
+        return view('user.edit')->with(['user'=>$user]);
     }
 
     /**
