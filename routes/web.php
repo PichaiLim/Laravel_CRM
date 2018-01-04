@@ -37,7 +37,9 @@ Route::prefix('/')->group(function(){
 });
 
 Route::group(['prefix'=>'/admin'/* , 'middleware'=>['auth'] */],function(){
-    Route::get('/home', 'Admin\AdminController@index')->name('admin.home');
+
+
+    Route::get('/list', 'Admin\AdminController@index')->name('admin.home');
     Route::get('/create', 'Admin\AdminController@create')->name('admin.create.admin');
     Route::post('/create', 'Admin\AdminController@store')->name('admin.create.admin.submit');
     Route::get('/search/{page?}', 'Admin\AdminController@search')->name('admin.search')->where('page', '[0-9]+');

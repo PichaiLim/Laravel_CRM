@@ -2,7 +2,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Form Elements</h3>
+                <h3>Users Form Elements</h3>
             </div>
 
             <div class="title_right">
@@ -21,7 +21,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Form Design
+                        <h2>Users Form Create
                             <small>different form elements</small>
                         </h2>
                         <ul class="nav navbar-right panel_toolbox">
