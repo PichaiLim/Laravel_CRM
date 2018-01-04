@@ -254,14 +254,14 @@
 
         <!-- /menu footer buttons -->
         <div class="sidebar-footer hidden-small">
-            <a href="{{ route('admin.home') }}" data-toggle="tooltip" data-placement="top" title="Settings">
+            <a href="{{ route('admin.home') }}" data-toggle="tooltip" data-placement="top" title="Settings Admin">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
             </a>
-            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            <a href="" data-toggle="tooltip" data-placement="top" title="Portfolio">
+                <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
             </a>
-            <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            <a data-toggle="tooltip" data-placement="top" title="Users" href="{{ route('admin.user.home') }}">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             </a>
             <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
