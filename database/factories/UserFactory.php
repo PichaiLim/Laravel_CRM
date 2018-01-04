@@ -22,6 +22,7 @@ $factory->define(Pichai\User::class, function (Faker $faker) {
         'password' => $password ?: $password = bcrypt('passwd'),
         'address' => $faker->streetAddress,
         'phone' => $faker->tollFreePhoneNumber,
+        'gender'=>$faker->randomElement(['m','f','']),
         'remember_token' => str_random(10),
     ];
 });

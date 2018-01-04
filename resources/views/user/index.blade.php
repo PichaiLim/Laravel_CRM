@@ -9,7 +9,7 @@
                 </div>
                 <div class="title_right">
                     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                        <form action="{{ route('admin.search') }}" method="get" role="form">
+                        <form action="{{ route('admin.user.search') }}" method="get" role="form">
                             <div class="input-group">
                                 <input type="search" name="search" id="txt_search" class="form-control"
                                        placeholder="Search for name">
@@ -30,7 +30,7 @@
                         <div class="x_content">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                                    <a href="{{ route('admin.create.admin') }}" class="btn btn-primary btn-sm"
+                                    <a href="{{ route('admin.user.create') }}" class="btn btn-primary btn-sm"
                                        role="button"><i class="fa fa-plus"></i> Add User</a>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12 text-center">
@@ -48,8 +48,8 @@
                                                     <h2>{{ $value->name }}</h2>
                                                     <p><strong>Email: </strong> {{ $value->email}} </p>
                                                     <ul class="list-unstyled">
-                                                        <li><i class="fa fa-building"></i> Address:</li>
-                                                        <li><i class="fa fa-phone"></i> Phone #:</li>
+                                                        <li><i class="fa fa-building"></i> Address: {{ $value->address }}</li>
+                                                        <li><i class="fa fa-phone"></i> Phone #: {{ $value->phone }}</li>
                                                     </ul>
                                                 </div>
                                                 <div class="right col-xs-5 text-center">

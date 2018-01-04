@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'address', 'phone', 'password',
+        'name', 'email', 'address', 'phone', 'avatar', 'gender', 'password',
     ];
 
     /**
@@ -27,9 +27,20 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Defining Guarded Attributes On A Model
+     */
+    protected $guarded = ['id', 'password'];
+
     protected $dateFormat = 'Y-m-d H:i:s';
 
     protected $dates = ['created_at', 'updated_at'];
 
     public $timestamps = true;
+
+
+    public function scopeSearchName($query, $search)
+    {
+        return $query->where('name', 'like', "%{$search}%");
+    }
 }

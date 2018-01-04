@@ -170,7 +170,7 @@ class AdminController extends Controller
         });
 
         # going to next page is not working yet
-        $adminAll = Admin::searchName($search)->paginate(1);
+        $adminAll = Admin::searchName($search)->paginate();
 
         // goto page ane return model
         return view('admin.index', ['adminAll' => $adminAll]);

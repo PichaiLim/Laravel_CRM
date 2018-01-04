@@ -36,7 +36,7 @@ class Admins extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password', 'avatar'];
 
     /**
      * Defining Guarded Attributes On A Model
