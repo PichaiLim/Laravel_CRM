@@ -117,7 +117,7 @@ class UserController extends Controller
         $user->gender = $request->gender;
         $user->save();
 
-        return redirect()->route('admin.user.show');
+        return redirect()->route('admin.user.show',['id'=>$user->id]);
     }
 
     /**
