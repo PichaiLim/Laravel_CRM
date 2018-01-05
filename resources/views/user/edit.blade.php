@@ -24,12 +24,15 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>User Form Design <small>different form elements</small></h2>
+                            <h2>User Form Design
+                                <small>different form elements</small>
+                            </h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="#">Settings 1</a>
                                         </li>
@@ -43,55 +46,78 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <br />
-                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            <br/>
+                            <form action="{{ route('admin.user.edit.submit', ['id'=>$user->id]) }}" method="post" id="my-form" data-parsley-validate class="form-horizontal form-label-left" role="form">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="id" id="id" value="{{$user->id}}">
+                                <div class="form-group">
+                                    <label for="name" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                        Full Name
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" name="name"
+                                               class="form-control col-md-7 col-xs-12"
+                                               id="name" required="required" value="{{ old('name')??$user->name }}">
+                                    </div>
+                                </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
+                                    <label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                        Email
+                                        <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                        <input type="email" name="email"
+                                               class="form-control col-md-7 col-xs-12"
+                                               id="email" required="required" value="{{ old('email')??$user->email }}">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+                                    <label for="address" class="control-label col-md-3 col-sm-3 col-xs-12">
+                                        Address
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                        <textarea name="address" id="address" class="form-control col-md-7 col-xs-12"
+                                                  role="textbox">{{ old('address')??$user->address }}</textarea>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Middle Name / Initial</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div id="gender" class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                <input type="radio" name="gender" value="male"> &nbsp; Male &nbsp;
-                                            </label>
-                                            <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                <input type="radio" name="gender" value="female"> Female
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
+                                    <label for="phone" class="control-label col-md-3 col sm-3 col-xs-12">
+                                        Phone
                                     </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <div class="col-md-6 col-sm-6 col-sm-12">
+                                        <input type="tel" name="phone"
+                                               class="form-control col-md-7 col-xs-12"
+                                               id="phone" value="{{ old('phone')??$user->phone }}">
                                     </div>
                                 </div>
+
+
+                                <div class="form-group">
+                                    <label for="gender" class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <select name="gender" id="gender" class="form-control col-md-7 col-xs-12">
+                                            @foreach($user->enumGender as $item => $value)
+                                                @if(old('gender') == $item || $user->gender == $item)
+                                                    <option value="{{ $item }}" selected="selected">{{ $value }}</option>
+                                                @else
+                                                    <option value="{{ $item }}">{{ $value }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <div class="ln_solid"></div>
+
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <button class="btn btn-primary" type="button">Cancel</button>
-                                        <button class="btn btn-primary" type="reset">Reset</button>
-                                        <button type="submit" class="btn btn-success">Submit</button>
+                                        <button role="button" class="btn btn-primary" type="button" onclick="javascript:window.history.back();">Cancel</button>
+                                        <button role="button" class="btn btn-primary" type="reset" onclick="javascript:confirm('Are you sure reset data Yes or No?');">Reset</button>
+                                        <button role="button" type="submit" class="btn btn-success">Submit</button>
                                     </div>
                                 </div>
 

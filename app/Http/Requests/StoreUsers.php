@@ -2,6 +2,7 @@
 
 namespace Pichai\Http\Requests;
 
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreUsers extends FormRequest
@@ -25,12 +26,13 @@ class StoreUsers extends FormRequest
     {
         return [
             // TODO Attributes ans validation
-            'name'=>'sometimes|required|string|max:150',
-            'password' => 'sometimes|required|min:3|same:password_confirmation',
-            'password_confirmation' => 'sometimes|required|min:3|same:password',
-            'email' => 'sometimes|required|email|unique:users,email,:id',
-            'avatar' => 'sometimes|mimes:jpeg,gif,png|size:1024'
-
+            'name'=>'required|string|max:150',
+            'password' => 'required|min:3|same:password_confirmation',
+            'password_confirmation' => 'required|min:3|same:password',
+            'email' => 'required|email|unique:users,email'/*.$this->id*/,
+            'avatar' => 'mimes:jpeg,gif,png|size:1024',
+            'phone'=>'required|min:8',
+            'gender'=>'required'
         ];
     }
 

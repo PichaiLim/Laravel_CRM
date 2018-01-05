@@ -48,7 +48,7 @@ Route::group(['prefix'=>'/admin'/* , 'middleware'=>['auth'] */],function(){
         Route::get('/create', 'Admin\UserController@create')->name('admin.user.create');
         Route::post('/create', 'Admin\UserController@store')->name('admin.user.create.submit');
         Route::get('/edit/{id}', 'Admin\UserController@edit')->name('admin.user.edit')->where('id','[0-9]+');
-        Route::post('/edit/{id}', 'Admin\UserController@edit')->name('admin.user.edit.submit')->where('id','[0-9]+');
+        Route::post('/edit/{id}', 'Admin\UserController@update')->name('admin.user.edit.submit')->where('id','[0-9]+');
         Route::get('/destroy/{id}', 'Admin\UserController@destroy')->name('admin.user.delete')->where('id', '[0-9]+');
     });
 

@@ -43,4 +43,6 @@ class User extends Authenticatable
     {
         return $query->where('name', 'like', "%{$search}%");
     }
+
+    public $enumGender = [''=>'None', 'm'=>'Male', 'f'=>'Female'];
 }

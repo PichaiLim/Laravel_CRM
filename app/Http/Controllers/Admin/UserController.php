@@ -17,8 +17,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
-        $users = User::paginate();
+        // TODO get all users
+        $users = User::orderBy('id', 'desc')->paginate();
+
         return view('user.index')->with(['user' => $users]);
     }
 
@@ -29,9 +30,11 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        // TODO new object
+        $user = new User;
 
-        return view('user.create');
+
+        return view('user.create')->with(['gender' => $user->enumGender]);
     }
 
     /**
@@ -42,7 +45,19 @@ class UserController extends Controller
      */
     public function store(StoreUsers $request)
     {
-        //
+        //TODO new object ans insert data
+        $user = new User;
+        $user->name = trim($request->name);
+        $user->email = trim($request->email);
+        $user->password = bcrypt($request->password);
+        $user->address = trim($request->address);
+        $user->phone = (trim($request->phone));
+        $user->avatar = null;
+        $user->gender = $request->gender;
+        $user->remember_token = str_random(10);
+        $user->save();
+
+        return redirect()->route('admin.user.home');
     }
 
     /**
@@ -53,10 +68,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        //TODO find get by id
         $user = User::find($id);
 
-        return view('user.show')->with(['user'=>$user]);
+        return view('user.show')->with(['user' => $user]);
     }
 
     /**
@@ -68,9 +83,9 @@ class UserController extends Controller
     public function edit($id)
     {
         //
-        $user = User::find($id);
+        $user = User::findOrFail($id);
 
-        return view('user.edit')->with(['user'=>$user]);
+        return view('user.edit')->with(['user' => $user]);
     }
 
     /**
@@ -82,7 +97,27 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // TODO Validate
+        $this->validate($request, [
+            'name' => 'required|string|max:150',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'avatar' => 'mimes:jpeg,gif,png|size:1024',
+            'phone' => 'required|min:8',
+            'gender' => 'required'
+        ]);
+
+        // TODO check id and update data
+        $user = User::findOrFail($id);
+        $user->name = trim($request->name);
+        $user->email = trim($request->email);
+        $user->password = bcrypt($request->password);
+        $user->address = trim($request->address);
+        $user->phone = (trim($request->phone));
+        $user->avatar = null;
+        $user->gender = $request->gender;
+        $user->save();
+
+        return redirect()->route('admin.user.show');
     }
 
     /**
@@ -93,7 +128,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //TODO drop data by id
         User::find($id)->delete;
 
         return redirect()->route('admin.user.home');
@@ -105,12 +140,12 @@ class UserController extends Controller
 
         // TODO Check default page
         if (!empty((int)$request->input('page') >= 1)) {
-            $page = $request->input('page');
+            $page = (int)$request->input('page');
         }
 
         // TODO Paginator
         Paginator::currentPageResolver(function () use ($page) {
-            return $page;
+            return (int)$page;
         });
 
         // Get query in function 'scopeSearchName'
