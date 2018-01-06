@@ -89,5 +89,8 @@
 <!-- Custom Theme Scripts -->
 <script src="{{ url('/js/custom.min.js') }}"></script>
 
+@stack('modal')
+@stack('scripts')
+
 </body>
 </html>

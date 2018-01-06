@@ -30,8 +30,25 @@
                         <div class="x_content">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                                    <a href="{{ route('admin.create.admin') }}" class="btn btn-primary btn-sm"
-                                       role="button"><i class="fa fa-plus"></i> Add User</a>
+                                    <div class="btn-group">
+
+                                        <a href="{{ route('admin.create.admin') }}" class="btn btn-primary btn-sm"
+                                           role="button"><i class="fa fa-plus"></i> Add User</a>
+
+                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-user-plus"></i> Role <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#" data-toggle="modal"
+                                                   data-target="#myModal-AddRole" role="button">
+                                                    <i class="fa fa-plus-circle"></i> Add Role
+                                                </a>
+                                            </li>
+                                            <li><a href="{{ route('admin.role') }}"><i class="fa fa-list-ul"></i> List Role</a></li>
+                                        </ul>
+                                    </div>
+
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12 text-center">
                                     {{ $adminAll->appends(['search' => Request::get('search'), 'page'=>Request::get('page')])->links() }}
@@ -43,7 +60,7 @@
                                     <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
                                         <div class="well profile_view">
                                             <div class="col-sm-12">
-                                                  <h4 class="brief"><i>{{ $value->roleUser->role->name }}</i></h4>
+                                                <h4 class="brief"><i>{{ $value->roleUser->roles->name }}</i></h4>
                                                 <div class="left col-xs-7">
                                                     <h2>{{ $value->name }}</h2>
                                                     <p><strong>Email: </strong> {{ $value->email}} </p>
@@ -94,3 +111,7 @@
     </div>
     <!-- /page content -->
 @endsection
+
+@push('modal')
+    @include('role._modal_create');
+@endpush

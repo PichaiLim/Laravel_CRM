@@ -41,6 +41,17 @@ Route::group(['prefix'=>'/admin'/* , 'middleware'=>['auth'] */],function(){
         return redirect()->route('admin.home');
     });
 
+    Route::group(['prefix'=>'/role/'], function(){
+        Route::get('/','Admin\RolesController@index')->name('admin.role');
+        Route::get('/search/{page?}', 'Admin\RolesController@search')->name('admin.role.search')->where('page','[0-9]+');
+        Route::get('/show/{id}','Admin\RolesController@show')->name('admin.role.show')->where('id','[0-9]+');
+        Route::get('/create', 'Admin\RolesController@create')->name('admin.role.create');
+        Route::post('/create','Admin\RolesController@store')->name('admin.role.create.submit');
+        Route::get('/edit/{id}','Admin\RolesController@edit')->name('admin.role.edit')->where('id','[0-9]+');
+        Route::post('/edit/{id}','Admin\RolesController@update')->name('admin.role.edit.submit')->where('id','[0-9]+');
+        Route::get('/destory/{id}', 'Admin\RolesController@destroy')->name('admin.role.delete')->where('id','[0-9]+');
+    });
+
     Route::group(['prefix'=>'/users/'], function (){
         Route::get('/', 'Admin\UserController@index')->name('admin.user.home');
         Route::get('/search/{page?}', 'Admin\UserController@search')->name('admin.user.search')->where('page','[0-9]+');

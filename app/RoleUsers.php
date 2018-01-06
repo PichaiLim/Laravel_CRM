@@ -31,9 +31,13 @@ class RoleUsers extends Model
         return $this->belongsTo('Pichai\Admins', 'user_id', 'id');
     }
 
-    public function role()
+    public function roles()
     {
         return $this->belongsTo('Pichai\Role', 'role_id', 'id');
+    }
+
+    public function scopeSearchRoleId($query, $role_id){
+        return $query->where('role_id', $this)->get();
     }
 
 }

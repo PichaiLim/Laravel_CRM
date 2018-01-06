@@ -45,4 +45,15 @@ class User extends Authenticatable
     }
 
     public $enumGender = [''=>'None', 'm'=>'Male', 'f'=>'Female'];
+
+    public function scopeGetGenderName($res)
+    {
+        foreach ($this->enumGender as $item => $value){
+            if($res == $item){
+                return $value;
+            }
+        }
+
+        return null;
+    }
 }

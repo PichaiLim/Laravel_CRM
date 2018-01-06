@@ -3,7 +3,7 @@
 namespace Pichai;
 
 use Illuminate\Database\Eloquent\Model;
-use Pichai\RoleUsers;
+use Pichai\RoleUsers as RoleUser;
 
 class Role extends Model
 {
@@ -17,11 +17,14 @@ class Role extends Model
 
     protected $dates = ['created_at', 'updated_id'];
 
-    public function roleUser()
+    // Relation
+    public function roleUsers()
     {
-        return $this->hasMany('Pichai\RoleUsers', 'role_is', 'id');
+        return $this->hasOne('Pichai\RoleUsers', 'role_id', 'id');
     }
 
-
-
+    public function scopeSearchName($query, $search)
+    {
+        return $query->where('name', 'like', "%{$search}%");
+    }
 }
